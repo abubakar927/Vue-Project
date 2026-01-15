@@ -1,60 +1,6 @@
-<template>
-  <section class="Dashboard">
-    <h2>Welcome to the DashBoard!</h2>
-    <p>Your Display chart is ready to view</p>
-
-    <!-- Bar Chart -->
-    <div class="chart">
-      <apexchart 
-        type="bar"
-        height="350"
-        :options="chartOptions"
-        :series="chartSeries"
-      />
-    </div>
-
-    <!-- Stats Cards -->
-    <div class="grid">
-      <div class="card">
-        <h3>Users</h3>
-        <p class="value">{{ stats.users }}</p>
-        <span class="meta">users</span>
-      </div>
-
-      <div class="card">
-        <h3>Tasks</h3>
-        <p class="value">{{ stats.tasks }}</p>
-        <span class="meta">Total Assigned Tasks</span>
-      </div>
-
-      <div class="card">
-        <h3>Deadlines</h3>
-        <p class="value danger">{{ stats.deadlines }}</p>
-        <span class="meta">Due this week</span>
-      </div>
-
-      <div class="card">
-        <h3>Reports</h3>
-        <p class="value">{{ stats.reports }}</p>
-        <span class="meta">Generated</span>
-      </div>
-
-      <div class="card">
-        <h3>Activity</h3>
-        <p class="value">{{ stats.activity }}%</p>
-        <span class="meta">Engagement</span>
-      </div>
-
-      <div class="card">
-        <h3>Settings</h3>
-        <p class="value">⚙</p>
-        <span class="meta">Configuration</span>
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
+import StatCard from '@/components/StatCard.vue'
+
 const chartSeries = [
   {
     name: 'Persons',
@@ -70,16 +16,11 @@ const chartOptions = {
   chart: {
     toolbar: { show: false }
   },
-  title: {
-    text: 'Monthly Progress'
-  },
-  xaxis: {
-    categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4']
-  },
+  title: { text: 'Monthly Progress' },
+  xaxis: { categories: ['Week 1', 'Week 2', 'Week 3', 'Week 4'] },
   colors: ['#38bdf8', '#22c55e']
 }
 
-// Card data (can be replaced by API later)
 const stats = {
   users: 1245,
   tasks: 342,
@@ -89,4 +30,29 @@ const stats = {
 }
 </script>
 
+<template>
+  <!-- <Header /> -->
+  <section class="Dashboard">
+    <h2>Welcome to the DashBoard!</h2>
+    <p>Your Display chart is ready to view</p>
 
+    <div class="chart">
+      <apexchart 
+        type="bar"
+        height="350"
+        :options="chartOptions"
+        :series="chartSeries"
+      />
+    </div>
+
+    <div class="grid">
+      <StatCard title="Users" :value="stats.users" meta="users" />
+      <StatCard title="Tasks" :value="stats.tasks" meta="Total Assigned Tasks" />
+      <StatCard title="Deadlines" :value="stats.deadlines" meta="Due this week" :isDanger="true" />
+      <StatCard title="Reports" :value="stats.reports" meta="Generated" />
+      <StatCard title="Activity" :value="stats.activity + '%'" meta="Engagement" />
+      <StatCard title="Settings" value="⚙" meta="Configuration" />
+    </div>
+  </section>
+  <!-- <Footer /> -->
+</template>

@@ -11,7 +11,7 @@ const router = useRouter()
 const route = useRoute()
 
 const items = [
-  { id: 1, name: 'Home', path: '/' },
+  { id: 1, name: 'DashBoard', path: '/dashboard' },
   { id: 2, name: 'About Us', path: '/about' },
   { id: 3, name: 'Contact Us', path: '/contact' }
 ]

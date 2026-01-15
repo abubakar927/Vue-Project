@@ -1,24 +1,25 @@
 <template>
-<Header title="Header" />
-<Dashboard title="Main Dashboard" />
-<Sidebar title="My Sidebar" />
-<Footer title="My Footer" />
-
+  <div class="app-layout">
+    <Header />
+    <Sidebar />
+    <main class="main-content">
+      <router-view />
+    </main>
+    <Footer />
+  </div>
 </template>
 
 <script>
-import Header from "./components/Header.vue"
-import Home from "./Pages/Home.vue"
-import Dashboard from "./Pages/Dashboard.vue";
-import Sidebar from "./components/Sidebar.vue";
-import Footer from "./components/Footer.vue"
+import Header from "@/components/Header.vue"
+import Sidebar from "@/components/Sidebar.vue"
+import Footer from "@/components/Footer.vue"
 
 export default {
   components: {
     Header,
-    Footer,
-    Dashboard,
+    Sidebar,
+    Footer
   }
-  
 }
 </script>
+
