@@ -1,25 +1,9 @@
-<script setup>
-import { ref } from 'vue'
-import Sidebar from './Sidebar.vue'
-
-const isSidebarOpen = ref(false)
-</script>
-
 <template>
   <header>
-    <h1>My Web App</h1>
-    <div class="search">
-      <input type="text" placeholder="Search..." />
-      <button class="srchbtn" >🔍</button>
+    <h1>Dashboard</h1>
+    <div class="header-icons">
+     <img src="../assets/notiicon.png" alt="">
+     <img src="../assets/profileicon.png" alt="">
     </div>
-
-    <button class="Menu-btn" @click="isSidebarOpen = true">
-      ☰ Menu
-    </button>
-
-    <Sidebar
-      :isOpen="isSidebarOpen"
-      @close="isSidebarOpen = false"
-    />
   </header>
 </template>

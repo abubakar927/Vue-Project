@@ -1,14 +1,15 @@
 <script setup>
 import StatCard from '@/components/StatCard.vue'
-
+import Header from '@/components/Header.vue'
+import Sidebar from '@/components/Sidebar.vue'
 const chartSeries = [
   {
     name: 'Persons',
-    data: [5, 7, 60, 90]
+    data: [5, 7, 19, 30]
   },
   {
     name: 'Assigned Tasks',
-    data: [20, 30, 50, 70]
+    data: [20, 30, 50, 90]
   }
 ]
 
@@ -31,7 +32,7 @@ const stats = {
 </script>
 
 <template>
-  <!-- <Header /> -->
+  <Header />
   <section class="Dashboard">
     <h2>Welcome to the DashBoard!</h2>
     <p>Your Display chart is ready to view</p>
@@ -54,5 +55,4 @@ const stats = {
       <StatCard title="Settings" value="⚙" meta="Configuration" />
     </div>
   </section>
-  <!-- <Footer /> -->
 </template>

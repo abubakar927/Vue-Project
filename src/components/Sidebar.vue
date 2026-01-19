@@ -1,44 +1,25 @@
 <script setup>
-import { useRoute, useRouter } from 'vue-router'
-
-defineProps({
-  isOpen: Boolean
-})
-
-const emit = defineEmits(['close'])
-
-const router = useRouter()
-const route = useRoute()
-
 const items = [
-  { id: 1, name: 'DashBoard', path: '/dashboard' },
-  { id: 2, name: 'About Us', path: '/about' },
-  { id: 3, name: 'Contact Us', path: '/contact' }
+  { id: 1, name: 'Dashboard', path: '/dashboard' },
+  { id: 2, name: 'Resources', path: '/resources' },
+  { id: 3, name: 'Sprints', path: '/sprints' }
 ]
-
-const navigate = (path) => {
-  router.push(path)
-  emit('close')
-}
 </script>
 
 <template>
-  <div class="Sidebar" :class="{ open: isOpen }">
-    <button class="close-btn" @click="emit('close')">✖</button>
-
-    <h2>Dashboard</h2>
+  <aside class="Sidebar">
+    <h2 class="title">Company Name</h2>
 
     <ul class="ul-items">
-      <li
-        v-for="item in items"
-        :key="item.id"
-        class="li-items"
-        :class="{ active: route.path === item.path }"
-        @click="navigate(item.path)"
-      >
-        {{ item.name }}
+      <li class="li-items" v-for="item in items" :key="item.id">
+        <router-link
+          :to="item.path"
+          class="li-items"
+          active-class="active"
+        >
+          {{ item.name }}
+        </router-link>
       </li>
     </ul>
-  </div>
+  </aside>
 </template>
-

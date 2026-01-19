@@ -1,11 +1,12 @@
 <template>
   <div class="app-layout">
-    <Header />
     <Sidebar />
-    <main class="main-content">
-      <router-view />
-    </main>
-    <Footer />
+     <div class="main-wrapper">     
+     <main class="main-content">
+       <router-view />
+     </main>
+     <Footer />
+    </div>
   </div>
 </template>
 
@@ -18,7 +19,7 @@ export default {
   components: {
     Header,
     Sidebar,
-    Footer
+    Footer,
   }
 }
 </script>

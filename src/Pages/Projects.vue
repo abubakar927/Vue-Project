@@ -1,6 +1,7 @@
 <template>
-  <div class="home-page">
-    <!-- <Header /> -->
+
+  <Header />
+  <div class="Projects-Page">
 
     <!-- Hero Section -->
     <section class="hero">
@@ -50,16 +51,13 @@
       <h2>Ready to Upgrade Your Channel?</h2>
       <p>Start today and get instant access to all the tools and services.</p>
       <a href="/signup" class="btn-primary">Sign Up Now</a>
-    </section>
-
-    <!-- Footer -->
-    <Footer />
+    </section>  
   </div>
+
 </template>
 
 <script setup>
 import Header from '@/components/Header.vue'
-// import Footer from '@/components/Footer.vue'
 import Card from '@/components/StatCard.vue'
 import monetizationImg from '@/assets/monetization.jpg'
 import canvaProImg from '@/assets/canvapro.jpg'
@@ -69,11 +67,11 @@ import turnitinImg from '@/assets/turnitin.jpg'
 </script>
 
 <style scoped>
-/* General Homepage Styles */
-.home-page {
+
+.Projects-Page {
   font-family: Arial, sans-serif;
-  background-color: #0f172a;
-  color: #fff;
+  /* background-color: #0f172a; */
+  color: #000000;
 }
 
 /* Hero Section */
@@ -83,7 +81,7 @@ import turnitinImg from '@/assets/turnitin.jpg'
   justify-content: space-between;
   align-items: center;
   padding: 60px 40px;
-  background: linear-gradient(135deg, #38bdf8, #020617);
+  background: linear-gradient(135deg, #729aee, #222f69);
   border-radius: 10px;
 }
 
@@ -145,8 +143,9 @@ import turnitinImg from '@/assets/turnitin.jpg'
 /* CTA Section */
 .cta {
   padding: 60px 40px;
-  background-color: #1e293b;
+  background: linear-gradient(135deg, #729aee, #222f69);
   text-align: center;
+  border-radius: 10px;
 }
 
 .cta h2 {
