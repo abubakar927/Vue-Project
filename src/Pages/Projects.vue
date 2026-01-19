@@ -1,6 +1,5 @@
 <template>
 
-  <Header />
   <div class="Projects-Page">
 
     <!-- Hero Section -->
@@ -50,14 +49,15 @@
     <section class="cta">
       <h2>Ready to Upgrade Your Channel?</h2>
       <p>Start today and get instant access to all the tools and services.</p>
-      <a href="/signup" class="btn-primary">Sign Up Now</a>
+      <router-link to="/login" class="btn-primary">
+        Sign Up Now
+      </router-link>
     </section>  
   </div>
 
 </template>
 
 <script setup>
-import Header from '@/components/Header.vue'
 import Card from '@/components/StatCard.vue'
 import monetizationImg from '@/assets/monetization.jpg'
 import canvaProImg from '@/assets/canvapro.jpg'
@@ -131,6 +131,12 @@ import turnitinImg from '@/assets/turnitin.jpg'
 .services h2 {
   font-size: 32px;
   margin-bottom: 40px;
+  color: #000000;
+}
+
+.card {
+  background: linear-gradient(135deg, #729aee, #222f69);
+  color: #000000;
 }
 
 .service-grid {

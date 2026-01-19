@@ -13,30 +13,27 @@ html, body {
 }
 
 .main-wrapper {
-  flex: 1;                 /* take remaining width */
+  flex: 1;
   display: flex;
-  flex-direction: column;  /* stack main-content + footer */
+  flex-direction: column;
 }
 
 .main-content {
     padding: 20px;
     flex: 1;
     background: #f2f3f5;
-    margin-left: 10px;
     margin-top: 0px
 }
 
 /* Header / Footer */
 header {
-  top: 0;
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #f2f3f5;
   color: #000000;
-  padding: 10px;
-  border-radius: 10px;
-  /* border: 1px solid #1e293b; */
+  padding: 10px 20px;
 }
 
 .header-icons img {
@@ -65,7 +62,7 @@ footer {
 
 /* Sidebar */
 
-.Sidebar {
+.Sidebar {  
   width: 190px;
   height: 100vh;
   position: sticky;
@@ -85,6 +82,7 @@ footer {
 
 .title {
   margin-bottom: 20px;
+  padding-top: 2px;
 }
 
 .ul-items {
@@ -136,6 +134,7 @@ a.li-items.active {
     color: rgb(0, 0, 0);
 }
 
+
 /* Cards */
 
 .grid {
@@ -146,7 +145,7 @@ a.li-items.active {
 }
 
 .card {
-    background: #ffffff;
+    background: #a6b3ec;
     padding: 20px;
     border-radius: 14px;
     color: #000000;
@@ -173,7 +172,7 @@ a.li-items.active {
     font-size: 32px;
     font-weight: bold;
     margin: 8px 0;
-    color: #38bdf8;
+    color: #0c0568;
 }
 
 .meta {

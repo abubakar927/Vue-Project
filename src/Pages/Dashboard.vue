@@ -1,7 +1,6 @@
 <script setup>
 import StatCard from '@/components/StatCard.vue'
-import Header from '@/components/Header.vue'
-import Sidebar from '@/components/Sidebar.vue'
+import ApexChart from 'vue3-apexcharts'
 const chartSeries = [
   {
     name: 'Persons',
@@ -36,14 +35,15 @@ const stats = {
   <section class="Dashboard">
     <h2>Welcome to the DashBoard!</h2>
     <p>Your Display chart is ready to view</p>
-
-    <div class="chart">
-      <apexchart 
-        type="bar"
-        height="350"
-        :options="chartOptions"
-        :series="chartSeries"
-      />
+    <div>
+      <div class="chart">
+        <ApexChart 
+           type="bar"
+           height="350"
+           :options="chartOptions"
+           :series="chartSeries"
+        />
+      </div>
     </div>
 
     <div class="grid">

@@ -1,8 +1,9 @@
 <template>
   <div class="login-container">
+    <img src="../assets/left.png" alt="">
     <div class="login-card">
       <h2>Login</h2>
-
+       
       <form @submit.prevent="handleLogin">
         <div class="form-group">
           <label>Email</label>
@@ -30,7 +31,6 @@
           {{ loading ? "Logging in..." : "Login" }}
         </button>
       </form>
-
       <div class="links">
         <router-link to="/forgot-password">Forgot password?</router-link>
         <router-link to="/register">Create account</router-link>
@@ -55,10 +55,7 @@ const handleLogin = async () => {
   loading.value = true;
 
   try {
-    // 🔹 Replace this with your real API call
     await fakeLoginApi(email.value, password.value);
-
-    // 🔹 Save token if needed
     localStorage.setItem("token", "fake-jwt-token");
 
     router.push("/dashboard");
@@ -84,6 +81,9 @@ const fakeLoginApi = (email, password) => {
 </script>
 
 <style scoped>
+
+
+
 .login-container {
   height: 100vh;
   display: flex;

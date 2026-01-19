@@ -1,10 +1,7 @@
-<template>
-<Header />    
+<template>  
 <div class="Sprint">
 <h1>Lorem, ipsum dolor.</h1>
 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil explicabo iusto, nam molestias animi soluta sequi veniam excepturi quos, laborum, quia beatae! Repudiandae, accusamus deleniti distinctio similique voluptas quisquam repellendus neque eius a itaque ratione animi eveniet labore libero aliquid obcaecati unde odio nisi reprehenderit sed impedit quia autem maiores. Optio ut ex laudantium perferendis dignissimos consectetur, at dolore, similique repellat eum aperiam, nihil beatae! Unde soluta distinctio deleniti recusandae, deserunt minus. Blanditiis doloribus a commodi odio dolorem, eligendi sunt, eos ex molestiae maxime, consequuntur officiis sint assumenda. Rerum incidunt dolorum dignissimos, totam iste illo ab. Officiis veritatis neque iure eum sed ex placeat modi aperiam eos quis itaque beatae vitae autem, quia voluptates, soluta alias nulla recusandae numquam? Nulla quas sint ullam placeat! Cupiditate repellendus enim repudiandae unde. Inventore sit dicta natus quisquam eos. Ipsa accusantium voluptas, beatae possimus eligendi fuga, dicta reprehenderit similique minima illum, aut magnam incidunt perspiciatis! Doloribus voluptate, quisquam sequi quas illo quos culpa libero, iure optio nam, aliquid earum expedita velit quis provident soluta eveniet sapiente veniam praesentium sunt consectetur sint! Est, esse error optio laboriosam rerum voluptatem velit. Aut consequuntur cupiditate distinctio, nihil nisi saepe tempore deserunt. Qui vero ducimus, animi vitae ipsam architecto! Debitis sed officiis soluta ad dolores cupiditate dolorem perferendis, id reiciendis voluptatibus minima fugit sint eligendi unde tempore dignissimos perspiciatis enim nam distinctio qui? Voluptas sit, quibusdam aliquid similique inventore atque saepe eligendi, possimus modi a illo nostrum, ex iure fugit accusamus dolorem quaerat nulla exercitationem magni? Sed voluptates alias a, quisquam nisi rerum facilis corrupti, quidem vero numquam dolore consectetur harum voluptas nostrum officia esse unde nihil minima maiores maxime nulla beatae. Rem, harum adipisci. Qui deserunt, id ipsam vitae facere expedita veniam natus nemo a beatae aliquid neque velit similique amet praesentium. Iste at temporibus nisi veritatis?</p>
 </div>
 </template>
-<script setup>
-    import Header from '@/components/Header.vue';
-</script>
+

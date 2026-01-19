@@ -1,13 +1,5 @@
 <template>
-  <div class="app-layout">
-    <Sidebar />
-     <div class="main-wrapper">     
-     <main class="main-content">
        <router-view />
-     </main>
-     <Footer />
-    </div>
-  </div>
 </template>
 
 <script>

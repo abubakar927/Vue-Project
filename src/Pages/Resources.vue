@@ -1,5 +1,4 @@
 <template>
-  <Header />
   <section class="about-page">
 
     <!-- About Intro -->
@@ -72,7 +71,6 @@
 </template>
 
 <script setup>
-  import Header from '@/components/Header.vue'
 import blog1 from '@/assets/blog1.jpg'
 import blog2 from '@/assets/blog2.jpg'
 import blog3 from '@/assets/blog3.jpg'
@@ -174,11 +172,11 @@ const blogs = [
 
 .stat h3 {
   font-size: 32px;
-  color: #01053f;
+  color: #f8f8f8;
 }
 
 .stat p {
-  color: #0b264d;
+  color: #f0f1f3;
 }
 
 /* Blogs */
