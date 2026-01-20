@@ -37,6 +37,12 @@
           :image="youtubeProImg" 
         />
         <Card 
+          title="Turnitin Subscription" 
+          value="📘" 
+          meta="Plagiarism Detection Tool" 
+          :image="turnitinImg" 
+        />
+        <Card 
           title="Other Tools" 
           value="⚡" 
           meta="All Premium Tools" 
@@ -70,7 +76,6 @@ import turnitinImg from '@/assets/turnitin.jpg'
 
 .Projects-Page {
   font-family: Arial, sans-serif;
-  /* background-color: #0f172a; */
   color: #000000;
 }
 

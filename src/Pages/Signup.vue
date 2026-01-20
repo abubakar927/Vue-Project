@@ -1,22 +1,23 @@
 <template>
   <div class="register-container">
     <div >
-      <h2>Register</h2>
+      <h1>Hello!</h1>
+      <h2>Sign Up to get started</h2>
 
       <form @submit.prevent="handleRegister">
         <div class="form-group">
           <label>Full Name</label>
-          <input v-model="fullName" type="text" required />
+          <input v-model="fullName" type="text" class="name-with-icon" placeholder= "Full Name" required />
         </div>
 
         <div class="form-group">
           <label>Email</label>
-          <input v-model="email" type="email" required />
+          <input v-model="email" type="email" class="email-with-icon" placeholder="Email Address" required />
         </div>
 
         <div class="form-group">
           <label>Password</label>
-          <input v-model="password" type="password" required />
+          <input v-model="password" type="password" class="pwd-with-icon" placeholder="Password" required />
         </div>
 
         <p v-if="error" class="error">{{ error }}</p>
@@ -99,11 +100,42 @@ const fakeRegisterApi = (user) => {
   border-radius: 12px;
 }
 
+h1 {
+  margin-bottom: 10px;
+  text-align: center;
+  font-weight: 600;
+  color: #1f2937;
+}
+
 h2 {
   margin-bottom: 24px;
   text-align: center;
   font-weight: 600;
   color: #1f2937;
+}
+
+.name-with-icon {
+  background-image: url('@/assets/user.png'); /* Vue asset */
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 18px;
+  padding-left: 40px; /* space for icon */
+}
+
+.email-with-icon {
+  background-image: url('@/assets/mail.png'); /* Vue asset */
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 18px;
+  padding-left: 40px; /* space for icon */
+}
+
+.pwd-with-icon {
+  background-image: url('@/assets/pwds.png'); /* Vue asset */
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 18px;
+  padding-left: 40px; /* space for icon */
 }
 
 .form-group {
@@ -121,12 +153,11 @@ label {
 input {
   width: 100%;
   padding: 12px 14px;
-  border-radius: 8px;
+  border-radius: 18px;
   border: 1px solid #d1d5db;
   font-size: 14px;
   transition: border 0.2s, box-shadow 0.2s;
 }
-
 
 
 input:focus {
@@ -187,15 +218,4 @@ button:disabled {
   text-decoration: underline;
 }
 
-/* subtle entrance animation
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} */
 </style>

@@ -1,8 +1,8 @@
 <template>
   <div class="login-container">
-    <img src="../assets/left.png" alt="">
     <div class="login-card">
-      <h2>Login</h2>
+      <h1>Hello Again!</h1>
+      <h2>Welcome Back</h2>
        
       <form @submit.prevent="handleLogin">
         <div class="form-group">
@@ -10,7 +10,8 @@
           <input
             v-model="email"
             type="email"
-            placeholder="Enter your email"
+            class="input-with-icon"
+            placeholder="Email Address"
             required
           />
         </div>
@@ -20,7 +21,8 @@
           <input
             v-model="password"
             type="password"
-            placeholder="Enter your password"
+            class="pwd-with-icon"
+            placeholder="Password"
             required
           />
         </div>
@@ -82,8 +84,6 @@ const fakeLoginApi = (email, password) => {
 
 <style scoped>
 
-
-
 .login-container {
   height: 100vh;
   display: flex;
@@ -93,16 +93,36 @@ const fakeLoginApi = (email, password) => {
   color: #000;
 }
 
+.input-with-icon {
+  background-image: url('@/assets/mail.png');
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 18px;
+  padding-left: 40px;
+}
+
+.pwd-with-icon {
+  background-image: url('@/assets/pwds.png'); 
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  background-size: 18px;
+  padding-left: 40px; 
+}
+
 .login-card {
-  width: 360px;
-  padding: 24px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  /* margin-left : 800px ; */
+  justify-content: center;
+  justify-items: center;
+
+}
+
+h1 {
+  margin-bottom: 10px;
+  text-align: center;
 }
 
 h2 {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   text-align: center;
 }
 
@@ -120,17 +140,19 @@ label {
 input {
   width: 100%;
   padding: 10px;
-  border-radius: 4px;
+  border-radius: 18px;
   border: 1px solid #ccc;
 }
 
 button {
   width: 100%;
-  padding: 10px;
+  margin-top: 10px;
+  margin-left: 25px;
+  padding: 12px;
   background: #2563eb;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
 }
 
@@ -146,6 +168,7 @@ button:disabled {
 
 .links {
   margin-top: 16px;
+  margin-left: 40px;
   display: flex;
   justify-content: space-between;
   font-size: 14px;
