@@ -16,7 +16,7 @@
         <h2>Who We Are</h2>
         <p>
           We are a digital services platform focused on YouTube monetization,
-          creator growth, and premium subscriptions like Canva Pro, YouTube Pro,
+          creator growth, and premium subscriptions like Canva Pro, YouTube Premium,
           Turnitin, and more.
         </p>
 

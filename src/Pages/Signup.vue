@@ -1,22 +1,12 @@
 <template>
   <div class="register-container">
-    <div class="register-card">
+    <div >
       <h2>Register</h2>
 
       <form @submit.prevent="handleRegister">
         <div class="form-group">
-          <label>First Name</label>
-          <input v-model="firstName" type="text" required />
-        </div>
-
-        <div class="form-group">
-          <label>Last Name</label>
-          <input v-model="lastName" type="text" required />
-        </div>
-
-        <div class="form-group">
-          <label>Phone Number</label>
-          <input v-model="phone" type="tel" required />
+          <label>Full Name</label>
+          <input v-model="fullName" type="text" required />
         </div>
 
         <div class="form-group">
@@ -49,9 +39,7 @@ import { useRouter } from "vue-router";
 
 const router = useRouter();
 
-const firstName = ref("");
-const lastName = ref("");
-const phone = ref("");
+const fullName = ref("");
 const email = ref("");
 const password = ref("");
 const loading = ref(false);
@@ -63,9 +51,7 @@ const handleRegister = async () => {
 
   try {
     await fakeRegisterApi({
-      firstName: firstName.value,
-      lastName: lastName.value,
-      phone: phone.value,
+      firstName: fullName.value,
       email: email.value,
       password: password.value,
     });
@@ -110,10 +96,7 @@ const fakeRegisterApi = (user) => {
   width: 100%;
   max-width: 400px;
   padding: 32px;
-  background: #ffffff;
   border-radius: 12px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-  animation: fadeIn 0.4s ease-in-out;
 }
 
 h2 {
@@ -144,6 +127,8 @@ input {
   transition: border 0.2s, box-shadow 0.2s;
 }
 
+
+
 input:focus {
   outline: none;
   border-color: #6366f1;
@@ -154,7 +139,8 @@ button {
   width: 100%;
   margin-top: 10px;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: 20px;
+  margin-left: 16px;
   border: none;
   background: #6366f1;
   color: white;
@@ -188,6 +174,7 @@ button:disabled {
   margin-top: 18px;
   text-align: center;
   font-size: 14px;
+  margin-left: 24px;
 }
 
 .links a {
@@ -200,7 +187,7 @@ button:disabled {
   text-decoration: underline;
 }
 
-/* subtle entrance animation */
+/* subtle entrance animation
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -210,5 +197,5 @@ button:disabled {
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 </style>

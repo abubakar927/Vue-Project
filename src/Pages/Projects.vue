@@ -10,7 +10,7 @@
         <a href="#services" class="btn-primary">Get Started</a>
       </div>
       <div class="hero-image">
-        <img src="../assets/youtubePro.png" alt="">
+        <img src="@/assets/youtubePro.png" alt="">
       </div>
     </section>
 
@@ -49,7 +49,7 @@
     <section class="cta">
       <h2>Ready to Upgrade Your Channel?</h2>
       <p>Start today and get instant access to all the tools and services.</p>
-      <router-link to="/login" class="btn-primary">
+      <router-link to="/signup" class="btn-primary">
         Sign Up Now
       </router-link>
     </section>  
@@ -86,7 +86,7 @@ import turnitinImg from '@/assets/turnitin.jpg'
 }
 
 .hero-content {
-  flex: 1 1 400px;
+  flex: 1  400px;
 }
 
 .hero-content h1 {

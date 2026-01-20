@@ -9,8 +9,6 @@ import Login from '@/Pages/Login.vue'
 import Signup from '@/Pages/Signup.vue'
 
 
-
-
 const routes = [
   {
     path: "/",
