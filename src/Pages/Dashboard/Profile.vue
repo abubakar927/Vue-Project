@@ -39,7 +39,7 @@
 import BaseInput from "@/components/auth/BaseInput.vue";
 import BaseButton from "@/components/auth/BaseButton.vue";
 import defaultAvatar from "@/assets/profileicon.png";
-import { useUserStore } from "@/stores/userStore";
+import { useUserStore } from "@/Stores/UserStore";
 
 const userStore = useUserStore();
 
