@@ -31,7 +31,7 @@ const stats = {
 </script>
 
 <template>
-  <Header />
+  <!-- <Header /> -->
   <section class="Dashboard">
     <h2>Welcome to the DashBoard!</h2>
     <p>Your Display chart is ready to view</p>

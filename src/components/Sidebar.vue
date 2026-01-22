@@ -1,8 +1,11 @@
 <script setup>
 const items = [
   { id: 1, name: 'Dashboard', path: '/dashboard' },
-  { id: 2, name: 'Resources', path: '/resources' },
-  { id: 3, name: 'Sprints', path: '/sprints' }
+  { id: 2, name: 'Projects', path: '/projects' },
+  { id: 3, name: 'Sprints', path: '/sprints' },
+  { id: 4, name: 'Resources', path: '/resources' },
+  { id: 5, name: 'Settings', path: '/settings' },
+  
 ]
 </script>
 

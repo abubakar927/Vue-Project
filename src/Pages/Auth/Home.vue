@@ -1,6 +1,5 @@
 <template>
-
-  <div class="Projects-Page">
+  <div class="Home-Page">
 
     <!-- Hero Section -->
     <section class="hero">
@@ -73,8 +72,7 @@ import turnitinImg from '@/assets/turnitin.jpg'
 </script>
 
 <style scoped>
-
-.Projects-Page {
+.Home-Page {
   font-family: Arial, sans-serif;
   color: #000000;
 }
@@ -91,7 +89,7 @@ import turnitinImg from '@/assets/turnitin.jpg'
 }
 
 .hero-content {
-  flex: 1  400px;
+  flex: 1 1 400px;
 }
 
 .hero-content h1 {
@@ -139,11 +137,6 @@ import turnitinImg from '@/assets/turnitin.jpg'
   color: #000000;
 }
 
-.card {
-  background: linear-gradient(135deg, #729aee, #222f69);
-  color: #000000;
-}
-
 .service-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -167,4 +160,69 @@ import turnitinImg from '@/assets/turnitin.jpg'
 .cta p {
   margin-bottom: 30px;
 }
+
+/*Mobile view */
+@media (max-width: 480px) {
+
+  .hero {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+
+  .hero-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 24px;
+  }
+
+  .hero-content p {
+    font-size: 14px;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .services {
+    padding: 30px 20px;
+  }
+
+  .services h2 {
+    font-size: 24px;
+    margin-bottom: 30px;
+  }
+
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cta {
+    padding: 30px 20px;
+  }
+
+  .cta h2 {
+    font-size: 20px;
+  }
+
+  .cta p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .btn-primary {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
 </style>
+
