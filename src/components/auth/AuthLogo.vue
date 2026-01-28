@@ -10,6 +10,6 @@
   text-align: center;
   margin-bottom: 20px;
   color: black;
-  margin-left:28px;
+  /* margin-left:28px; */
 }
 </style>

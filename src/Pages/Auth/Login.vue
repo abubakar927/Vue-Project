@@ -51,7 +51,7 @@ export default {
 .auth-link {
   margin-top: 10px;
   text-align: center;
-    /* margin-left: 30px; */
+    margin-left: 30px;
 
 }
 
@@ -60,5 +60,10 @@ export default {
   text-decoration: underline;
   cursor: pointer;
 
+}
+
+
+.base-btn{
+  width: 100%;
 }
 </style>

@@ -45,7 +45,7 @@ export default {
 }
 
 .base-input {
-  width: 100%;
+  width: auto;
   padding: 15px;
   padding-left: 45px; 
   margin-bottom: 12px;

@@ -1,9 +1,9 @@
+/* ---------- Light Mode (default) ---------- */
 html, body {
     margin: 0;
     font-family: 'Times New Roman', Times, serif;
     background: #f2f3f5;
-    color: #e5e7eb;
-    /* min-height: 100vh; */
+    color: #000000;
 }
 
 .app-layout {
@@ -22,12 +22,11 @@ html, body {
     padding: 20px;
     flex: 1;
     background: #f2f3f5;
-    margin-top: 0px
+    margin-top: 0px;
 }
 
 /* Header / Footer */
 header {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -40,7 +39,6 @@ header {
   width: 29px;
   height : 29px;
   margin-left: 15px;
-
 }
 
 .header-icons img:hover {
@@ -55,13 +53,10 @@ footer {
   padding: 10px;
   border-radius: 10px;
   text-align: center;
-  /* position: sticky; */
   bottom: 0;
-  /* margin-left: 50px; */
 }
 
 /* Sidebar */
-
 .Sidebar {  
   width: 190px;
   position: static;
@@ -70,7 +65,7 @@ footer {
   color: rgb(0, 0, 0);
   padding: 10px;
   flex-shrink: 0;
-  background: #2948d1;  /* transparent */
+  background: #2948d1; 
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-right: 1px solid rgba(255, 255, 255, 0.12);
@@ -105,13 +100,10 @@ a.li-items:hover {
 a.li-items.active {
   background-color: #080175;
   font-weight: bold;
-  color: #ffffff
-
+  color: #ffffff;
 }
 
-
 /* Dashboard */
-
 .Dashboard {
     background: #f2f3f5;
     color: #0a0a0a;
@@ -120,7 +112,6 @@ a.li-items.active {
 }
 
 /* Chart */
-
 .chart {
     margin-top: 40px;
     background-color: #a6b3ec;
@@ -131,9 +122,7 @@ a.li-items.active {
     color: rgb(0, 0, 0);
 }
 
-
 /* Cards */
-
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -162,7 +151,7 @@ a.li-items.active {
 
 .card h3 {
     font-size: 14px;
-    opacity: 0.7;
+    opacity: 0.8;
 }
 
 .value {
@@ -174,7 +163,7 @@ a.li-items.active {
 
 .meta {
     font-size: 12px;
-    opacity: 0.6;
+    opacity: 0.8;
 }
 
 .danger {
@@ -183,6 +172,117 @@ a.li-items.active {
 
 .Sprint {
     background-color: #f3f3f3;
-  color: #000000;
-  padding: 40px;
+    color: #000000;
+    padding: 40px;
+}
+
+/* Inputs, selects, buttons */
+input, select, textarea, button {
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+/* ---------- Dark Mode Overrides ---------- */
+.dark html, 
+.dark body {
+    background: #1f2937;
+    color: #f3f4f6;
+}
+
+.dark .app-layout {
+    background: #1f2937;
+    color: #f3f4f6;
+}
+
+.dark .main-wrapper, 
+.dark .main-content {
+    background: #111827;
+    color: #f3f4f6;
+}
+
+.dark header {
+    background: #1f2937;
+    color: #f3f4f6;
+}
+
+.dark footer {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f3f4f6;
+}
+
+.dark .Sidebar {
+    background: #1f2937;
+    color: #f3f4f6;
+}
+
+.dark .title {
+  
+  color: #f3f4f6;
+}
+
+.dark .li-items {
+    color: #f3f4f6;
+}
+
+.dark a.li-items.active {
+    background-color: #0b3c91;
+    color: #ffffff;
+}
+
+.dark .Dashboard {
+    background: #111827;
+    color: #f3f4f6;
+}
+
+.dark  .Dashboard h2{
+    color: #f3f4f6;
+}
+
+.dark .chart {
+    background-color: #a8aace;
+    border-color: #4b5563;
+    color: #070707;
+}
+
+.dark .card {
+    background: #374151;
+    color: #627397;
+    border: 1px solid #6b7280;
+}
+
+.dark .Dashboard .card h3{
+    color: #cfe5fd;
+} 
+
+.dark .Dashboard .card p{
+    color: #74b5ff;
+} 
+
+
+
+.dark .Sprint {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+.dark .sprint-page {
+    color: #f3f4f6;
+
+}
+
+.dark .Resources {
+    background-color: #1f2937;
+    color: #f3f4f6;
+}
+
+
+.dark input, 
+.dark select, 
+.dark textarea, 
+.dark button {
+    background-color: #4b5563;
+    color: #f3f4f6;
+    border: 1px solid #6b7280;
 }

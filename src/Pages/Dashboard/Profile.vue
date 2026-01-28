@@ -54,13 +54,13 @@ function uploadImage(event) {
 
   const reader = new FileReader();
   reader.onload = () => {
-    userStore.setAvatar(reader.result); // 🔥 instant update
+    userStore.setAvatar(reader.result); 
   };
   reader.readAsDataURL(file);
 }
 
 function removeAvatar() {
-  userStore.removeAvatar(); // 🔥 instant update
+  userStore.removeAvatar();
 }
 
 function saveProfile() {

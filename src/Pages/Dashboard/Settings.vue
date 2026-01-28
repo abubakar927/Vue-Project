@@ -1,167 +1,195 @@
 <template>
   <div class="settings-page">
-    <h2>Settings</h2>
+    <h2>{{ $t("settings") }}</h2>
 
-    <!-- Profile Info Section -->
+    <!-- Profile Info -->
     <section class="section">
       <StatCard
-        title="Profile Info"
+        :title="$t('profileInfo')"
         :value="user.name"
         :meta="user.email"
       />
-      <BaseInput v-model="user.name" placeholder="Full Name" />
-      <BaseInput v-model="user.email" placeholder="Email Address" />
-      <BaseButton text="Update Profile" @click="updateProfile" />
+      <BaseInput v-model="user.name" :placeholder="$t('fullName')" />
+      <BaseInput v-model="user.email" :placeholder="$t('email')" />
+      <BaseButton :text="$t('updateProfile')" @click="updateProfile" />
     </section>
 
-    <!-- Account Security Section -->
+    <!-- Security -->
     <section class="section">
       <StatCard
-        title="Account Security"
+        :title="$t('accountSecurity')"
         value="********"
-        meta="Password Protected"
+        :meta="$t('passwordProtected')"
       />
-      <BaseInput type="password" v-model="password.current" placeholder="Current Password" />
-      <BaseInput type="password" v-model="password.new" placeholder="New Password" />
-      <BaseInput type="password" v-model="password.confirm" placeholder="Confirm Password" />
-      <BaseButton text="Change Password" @click="changePassword" />
+      <BaseInput type="password" v-model="password.current" :placeholder="$t('currentPassword')" />
+      <BaseInput type="password" v-model="password.new" :placeholder="$t('newPassword')" />
+      <BaseInput type="password" v-model="password.confirm" :placeholder="$t('confirmPassword')" />
+      <BaseButton :text="$t('changePassword')" @click="changePassword" />
     </section>
 
-    <!-- Preferences Section -->
+    <!-- Preferences -->
     <section class="section preferences">
       <div class="pref-item">
         <StatCard
-          title="Notifications"
-          :value="preferences.notifications ? 'Enabled' : 'Disabled'"
-          meta="Toggle Notifications"
+          :title="$t('notifications')"
+          :value="preferences.notifications ? $t('enabled') : $t('disabled')"
         />
-        <div class="toggle-wrapper">
-          <ToggleSwitch v-model="preferences.notifications" />
-        </div>
+        <ToggleSwitch v-model="preferences.notifications" />
       </div>
 
       <div class="pref-item">
         <StatCard
-          title="Dark Mode"
-          :value="preferences.darkMode ? 'Enabled' : 'Disabled'"
-          meta="Toggle Dark Mode"
+          :title="$t('darkMode')"
+          :value="theme.isDark ? $t('enabled') : $t('disabled')"
         />
-        <div class="toggle-wrapper">
-          <ToggleSwitch v-model="preferences.darkMode" />
-        </div>
+        <ToggleSwitch v-model="theme.isDark" />
       </div>
 
       <div class="pref-item">
         <StatCard
-          title="Language"
-          :value="preferences.language"
-          meta="Select Preferred Language"
+          :title="$t('language')"
+          :value="languageLabel"
+          :meta="$t('selectLanguage')"
         />
         <select v-model="preferences.language">
-          <option value="English">English</option>
-          <option value="Spanish">Spanish</option>
-          <option value="French">French</option>
-          <option value="German">German</option>
+          <option value="en">English</option>
+          <option value="es">Spanish</option>
+          <option value="fr">French</option>
+          <option value="de">German</option>
         </select>
       </div>
 
       <div class="pref-item">
         <StatCard
-          title="Privacy"
-          :value="preferences.profilePublic ? 'Public' : 'Private'"
-          meta="Profile Visibility"
+          :title="$t('privacy')"
+          :value="preferences.profilePublic ? $t('public') : $t('private')"
         />
-        <div class="toggle-wrapper">
-          <ToggleSwitch v-model="preferences.profilePublic" />
-        </div>
+        <ToggleSwitch v-model="preferences.profilePublic" />
       </div>
 
       <div class="pref-item">
         <StatCard
-          title="Email Updates"
-          :value="preferences.emailUpdates ? 'Subscribed' : 'Unsubscribed'"
-          meta="Receive Emails"
+          :title="$t('emailUpdates')"
+          :value="preferences.emailUpdates ? $t('subscribed') : $t('unsubscribed')"
         />
-        <div class="toggle-wrapper">
-          <ToggleSwitch v-model="preferences.emailUpdates" />
-        </div>
+        <ToggleSwitch v-model="preferences.emailUpdates" />
       </div>
 
-      <BaseButton text="Save Preferences" @click="savePreferences" />
+      <BaseButton :text="$t('savePreferences')" @click="savePreferences" />
     </section>
 
-    <!-- Danger Zone Section -->
+    <!-- Danger Zone -->
     <section class="section danger-zone">
-      <h3>Danger Zone</h3>
-      <p>Deleting your account is permanent. All your data will be lost.</p>
-      <BaseButton text="Delete Account" @click="deleteAccount" class="danger-btn"/>
+      <h3>{{ $t("dangerZone") }}</h3>
+      <p>{{ $t("The account will be permanently deleted") }}</p>
+      <BaseButton
+        :text="$t('deleteAccount')"
+        class="danger-btn"
+        @click="deleteAccount"
+      />
     </section>
-
   </div>
 </template>
 
+
 <script setup>
-import { reactive } from "vue";
+import { reactive, computed, onMounted, watch } from "vue";
+import { useI18n } from "vue-i18n";
 import StatCard from "@/components/StatCard.vue";
 import BaseInput from "@/components/auth/BaseInput.vue";
 import BaseButton from "@/components/auth/BaseButton.vue";
 import ToggleSwitch from "@/components/ToggleSwitch.vue";
+import authService from "@/Services/auth.service";
+import { theme } from "@/Stores/Theme.js";
 
-// Reactive state
-const user = reactive({ name: "John Doe", email: "john@example.com" });
-const password = reactive({ current: "", new: "", confirm: "" });
+const { locale } = useI18n();
+
+const user = reactive({ name: "", email: "" });
+
+const password = reactive({
+  current: "",
+  new: "",
+  confirm: ""
+});
+
 const preferences = reactive({
   notifications: true,
-  darkMode: false,
-  language: "English",
+  language: localStorage.getItem("language") || "en",
   profilePublic: true,
   emailUpdates: true
 });
 
-// Methods
-function updateProfile() {
-  console.log("Profile updated", user);
+const languageLabel = computed(() => {
+  return {
+    en: "English",
+    es: "Spanish",
+    fr: "French",
+    de: "German"
+  }[preferences.language];
+});
+
+watch(
+  () => preferences.language,
+  (lang) => {
+    locale.value = lang;
+    localStorage.setItem("language", lang);
+  }
+);
+
+onMounted(() => {
+  const savedUser = JSON.parse(localStorage.getItem("user"));
+  if (savedUser) {
+    user.name = savedUser.name;
+    user.email = savedUser.email;
+  }
+});
+
+async function updateProfile() {
+  const updated = await authService.updateProfile({
+    name: user.name,
+    email: user.email
+  });
+  localStorage.setItem("user", JSON.stringify(updated));
+  alert("Profile updated");
 }
 
 function changePassword() {
-  if (password.new !== password.confirm) return alert("Passwords do not match");
-  console.log("Password changed", password);
+  if (password.new !== password.confirm) {
+    alert("Passwords do not match");
+    return;
+  }
+  alert("Password changed");
 }
 
 function savePreferences() {
-  console.log("Preferences saved", preferences);
+  localStorage.setItem("preferences", JSON.stringify(preferences));
+  alert("Preferences saved");
 }
 
 function deleteAccount() {
-  if(confirm("Are you sure you want to delete your account? This action is irreversible.")) {
-    console.log("Account deleted");
+  if (confirm("This action is irreversible")) {
+    alert("Account deleted");
   }
 }
 </script>
 
-<style scoped>
-.settings-page {
-  max-width: 900px;
-  margin: auto;
-  padding: 20px;
-  font-family: Arial, sans-serif;
-}
 
-h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: black;
+<style>
+.settings-page {
+  width: 500px;
+  margin: auto;
+  padding: 10px;
+  background: #e0e0e0;
 }
 
 .section {
-  background-color: #f5f5f5;
+  background: #e0e0e0;
   padding: 20px;
   border-radius: 12px;
   margin-bottom: 25px;
   display: flex;
   flex-direction: column;
   gap: 15px;
-  color: black;
 }
 
 .preferences {
@@ -170,57 +198,32 @@ h2 {
   gap: 20px;
 }
 
-.pref-item {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.toggle-wrapper {
-  margin-top: 5px;
+input,
+select {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #242222;
+  width: auto;
 }
 
 .danger-zone .danger-btn {
-  background-color: #ef4444;
-  color: #fff;
+  background: #ef4444;
+  color: white;
 }
 
-.danger-zone .danger-btn:hover {
-  background-color: #dc2626;
+/* DARK MODE */
+.dark .settings-page {
+  background: #1f2937;
+  color: #f3f4f6;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .settings-page {
-    padding: 10px;
-  }
-  h2 {
-    font-size: 24px;
-  }
-  .section {
-    padding: 15px;
-  }
-  .preferences {
-    grid-template-columns: 1fr;
-  }
-  .pref-item {
-    gap: 8px;
-  }
+.dark .section {
+  background: #374151;
 }
 
-@media (max-width: 480px) {
-  h2 {
-    font-size: 20px;
-  }
-  .section {
-    padding: 12px;
-  }
-  .toggle-wrapper {
-    margin-top: 8px;
-  }
-  select {
-    padding: 8px;
-    font-size: 0.9rem;
-  }
+.dark input,
+.dark select {
+  background: #4b5563;
+  color: #f3f4f6;
 }
 </style>

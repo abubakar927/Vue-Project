@@ -14,7 +14,7 @@ export default {
 
 <style scoped>
 .base-btn {
-  width: 100%;
+  width: auto;
   padding: 10px;
   border-radius: 20px;
   border: none;
@@ -23,7 +23,7 @@ export default {
   cursor: pointer;
   justify-content: center;
   justify-items: center;
-  margin-left: 28px;
+  
 }
 .base-btn:hover{
   background: #62a4ee;

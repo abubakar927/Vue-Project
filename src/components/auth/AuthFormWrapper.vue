@@ -21,7 +21,6 @@ export default {
 
 <style scoped>
 .form-wrapper {
-  width: 320px;
   justify-content: center;
   justify-items: center;
   
@@ -29,12 +28,10 @@ export default {
 h3 {
   margin-top: 10px;
   color: black;
-  margin-left:28px;
   
 }
 p {
   margin-bottom: 20px;
   color: rgb(0, 0, 0);
-  margin-left:28px;
 }
 </style>

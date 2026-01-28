@@ -34,7 +34,7 @@ const stats = {
   <!-- <Header /> -->
   <section class="Dashboard">
     <h2>Welcome to the DashBoard!</h2>
-    <p>Your Display chart is ready to view</p>
+    <p>Your Progress chart is ready to view</p>
     <div>
       <div class="chart">
         <ApexChart 
@@ -56,3 +56,4 @@ const stats = {
     </div>
   </section>
 </template>
+

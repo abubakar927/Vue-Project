@@ -11,7 +11,8 @@ import Newpass from '@/Pages/Auth/Newpass.vue'
 import Forgotpass from '@/Pages/Auth/Forgotpass.vue'
 import Home from '@/Pages/Auth/Home.vue'
 import Settings from '@/Pages/Dashboard/Settings.vue'
-import Profile from '@/Pages/Dashboard/Profile.vue';
+import Profile from '@/Pages/Dashboard/Profile.vue'
+import Projects from '@/Pages/Dashboard/Projects.vue'
 
 
 const routes = [
@@ -32,6 +33,7 @@ const routes = [
       { path: "resources", component: Resources },
       { path: "settings", component: Settings },
       { path: "profile", component: Profile },
+      { path: "projects", component: Projects },
     ],
   },
   {

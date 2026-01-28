@@ -1,8 +1,8 @@
 <template>
-  <section class="about-page">
+  <section class="resources">
 
     <!-- About Intro -->
-    <div class="about-hero">
+    <div class="resources-hero">
       <h1>About Us</h1>
       <p>
         We help creators grow, monetize their content, and access premium tools
@@ -11,8 +11,8 @@
     </div>
 
     <!-- About Content -->
-    <div class="about-content">
-      <div class="about-text">
+    <div class="resources-content">
+      <div class="resources-text">
         <h2>Who We Are</h2>
         <p>
           We are a digital services platform focused on YouTube monetization,
@@ -26,7 +26,7 @@
         </p>
       </div>
 
-      <div class="about-image">
+      <div class="resources-image">
         <img src="@/assets/about.jpg" alt="About Us" />
       </div>
     </div>
@@ -98,59 +98,57 @@ const blogs = [
 </script>
 
 <style scoped>
-.about-page {
+.resources {
   background-color: #f3f3f3;
   color: #000000;
   padding: 40px;
 }
 
 /* Hero */
-.about-hero {
+.resources-hero {
   text-align: center;
   margin-bottom: 60px;
 }
 
-.about-hero h1 {
+.resources-hero h1 {
   font-size: 40px;
   margin-bottom: 10px;
 }
 
-.about-hero p {
+.resources-hero p {
   font-size: 18px;
   color: #000000;
 }
 
 /* About Content */
-.about-content {
+.resources-content {
   display: flex;
   gap: 40px;
   align-items: center;
   margin-bottom: 60px;
   flex-wrap: wrap;
-  color: #000000;
 }
 
-.about-text {
+.resources-text {
   flex: 1;
-  color: #000000;
 }
 
-.about-text h2 {
+.resources-text h2 {
   font-size: 28px;
   margin-bottom: 20px;
+
 }
 
-.about-text p {
+.resources-text p {
   margin-bottom: 15px;
-  color: #000000;
 }
 
-.about-image {
+.resources-image {
   flex: 1;
   text-align: center;
 }
 
-.about-image img {
+.resources-image img {
   max-width: 100%;
   border-radius: 14px;
 }
@@ -233,5 +231,43 @@ const blogs = [
 
 .read-more:hover {
   text-decoration: underline;
+}
+
+/* --------------------- Dark Mode Overrides --------------------- */
+.dark .resources {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+.dark .resources-hero p,
+.dark .resources-text p,
+.dark .resources-text h2,
+.dark .blog-section h2  {
+  color: #d1d5db;
+}
+
+.dark .stat {
+  background: #374151;
+}
+
+.dark .stat h3,
+.dark .stat p {
+  color: #f3f4f6;
+}
+
+.dark .blog-card {
+  background: #1f2937;
+}
+
+.dark .blog-content h3 {
+  color: #f3f4f6;
+}
+
+.dark .blog-content p {
+  color: #d1d5db;
+}
+
+.dark .read-more {
+  color: #f3f4f6;
 }
 </style>

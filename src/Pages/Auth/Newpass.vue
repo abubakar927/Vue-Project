@@ -71,3 +71,9 @@ export default {
   },
 };
 </script>
+<style scoped>
+
+.base-btn{
+  width: 100%;
+}
+</style>

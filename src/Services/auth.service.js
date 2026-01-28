@@ -22,7 +22,6 @@ export default {
 
     if (!user) throw new Error("Invalid credentials");
 
-    // store token in localStorage
     localStorage.setItem(TOKEN_KEY, "fake-jwt-token");
     localStorage.setItem("user", JSON.stringify(user));
 
@@ -47,6 +46,7 @@ export default {
   async resetPassword({ email, password }) {
     const users = JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
     const userIndex = users.findIndex(u => u.email === email);
+
     if (userIndex === -1) throw new Error("Email not found");
 
     users[userIndex].password = password;
@@ -55,4 +55,35 @@ export default {
     localStorage.removeItem("resetEmail");
     return { message: "Password updated (mock)" };
   },
+
+  // ✅ ADD THIS METHOD
+  async updateProfile({ name, email }) {
+    const users = JSON.parse(localStorage.getItem(USERS_KEY) || "[]");
+    const currentUser = JSON.parse(localStorage.getItem("user"));
+
+    if (!currentUser) throw new Error("User not logged in");
+
+    // prevent duplicate email (except own)
+    const emailExists = users.find(
+      u => u.email === email && u.email !== currentUser.email
+    );
+    if (emailExists) {
+      throw new Error("Email already in use");
+    }
+
+    // update users list
+    const updatedUsers = users.map(u =>
+      u.email === currentUser.email
+        ? { ...u, name, email }
+        : u
+    );
+
+    localStorage.setItem(USERS_KEY, JSON.stringify(updatedUsers));
+
+    // update current session user
+    const updatedUser = { ...currentUser, name, email };
+    localStorage.setItem("user", JSON.stringify(updatedUser));
+
+    return updatedUser;
+  }
 };

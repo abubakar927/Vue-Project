@@ -61,4 +61,8 @@ export default {
   text-decoration: underline;
   cursor: pointer;
 }
+
+.base-btn {
+  width: 100%;
+}
 </style>
