@@ -66,4 +66,5 @@ export default {
 .base-btn{
   width: 100%;
 }
+
 </style>
